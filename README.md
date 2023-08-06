@@ -8,6 +8,13 @@ Framework - Flutter
 <br>
 Database - Firebase and SQLite
 
+<br>
+<br>
+
+###### Download apk from below link
+<br>
+https://github.com/Abhishek00p/FlutterVibes/releases/download/1.0.0/FlutterVibes.apk
+<br><br><br><br>
 
 ### HomePage :
 
