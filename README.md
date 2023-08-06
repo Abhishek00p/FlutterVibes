@@ -8,6 +8,8 @@ Database - Firebase and SQLite
 
 
 ### HomePage :
+
+<img src = "https://github.com/Abhishek00p/FlutterVibes/assets/90974451/48bc9916-9dd7-43ea-8e7e-71a8a139c04b" width=200>
 ![Screenshot_20230807-014526](https://github.com/Abhishek00p/FlutterVibes/assets/90974451/48bc9916-9dd7-43ea-8e7e-71a8a139c04b)
 
 To Search a Song by its Title or Artist Name
