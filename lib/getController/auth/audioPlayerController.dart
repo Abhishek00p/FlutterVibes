@@ -7,5 +7,7 @@ class AudioPlayerGetController extends GetxController{
   var isAudioPlaying=false.obs;
   var listOfSongsOfThisCategory =<SongModel>[].obs;
   var currentIndexFromList=0.obs;
+  var isShuffling=false.obs;
+  var isLooping=false.obs;
 
 }
