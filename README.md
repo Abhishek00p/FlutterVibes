@@ -3,7 +3,9 @@
 A Flutter App for Android and IOS
 
 SateManageMent - GETX
+<br>
 Framework - Flutter
+<br>
 Database - Firebase and SQLite
 
 
@@ -14,6 +16,7 @@ Database - Firebase and SQLite
 To Search a Song by its Title or Artist Name<br><br>
 HomeScreen --> Top right Corner --> Press Search Icon
 <br><br>
+
 ### SearchPage
 
 <img src = "https://github.com/Abhishek00p/FlutterVibes/assets/90974451/42bfb3f6-32c5-4dba-a863-7e313f12c04b" width=200>
@@ -28,7 +31,7 @@ you will be Redirected to Song Detail Screen
 <img src = "https://github.com/Abhishek00p/FlutterVibes/assets/90974451/9905d7ec-c838-4008-abc9-62ef29e3724c" width=200>
 <br><br>
 
-Shuffle and Repeat Option are added for better Experience
+#### Shuffle and Repeat Option are added for better Experience
 <br><br>
 <img src="https://github.com/Abhishek00p/FlutterVibes/assets/90974451/e90491ca-0493-4daf-953b-e941d3d7f7fe" width =200>
 
