@@ -26,12 +26,46 @@ class _AlbumPageState extends State<AlbumPage> {
   var currentValue = 0.0;
   var positionofSlider;
 
+  void playNextSong() {
+    //Check is Shuffle is ON
+    if (audioPlayerGetControl.isShuffling.value) {
+      audioPlayerGetControl.listOfSongsOfThisCategory.value.shuffle();
+      audioPlayerGetControl.currentIndexFromList.value = 0;
+    } else {
+      // If Shuffle is OFF play next Sequence
+      if (audioPlayerGetControl.currentIndexFromList.value <
+          audioPlayerGetControl.listOfSongsOfThisCategory.value.length - 1) {
+        audioPlayerGetControl.currentIndexFromList.value++;
+      } else if (audioPlayerGetControl.isLooping.value) {
+        audioPlayerGetControl.currentIndexFromList.value = 0;
+      }
+    }
+
+    final nextSong = audioPlayerGetControl.listOfSongsOfThisCategory
+        .value[audioPlayerGetControl.currentIndexFromList.value];
+
+    _audioPlayer.setUrl(nextSong.songUrl);
+    _audioPlayer.play();
+    setState(() {
+
+    });
+  }
+
   @override
   void initState() {
+    super.initState();
+
     positionofSlider = _audioPlayer.positionStream;
     audioDuration = _audioPlayer.durationStream;
+    _audioPlayer.playerStateStream.listen((event) {
+      print("playing  state :${event.processingState}");
 
-    super.initState();
+      if (ProcessingState.completed == event.processingState) {
+        print("processingSATECompleted : ");
+
+        playNextSong();
+      }
+    });
   }
 
   @override
@@ -157,6 +191,24 @@ class _AlbumPageState extends State<AlbumPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       IconButton(
+                        onPressed: () {
+                          // Toggle loop mode
+                          audioPlayerGetControl.isLooping.value =
+                              !audioPlayerGetControl.isLooping.value;
+                          _audioPlayer.setLoopMode(
+                            audioPlayerGetControl.isLooping.value
+                                ? LoopMode.one
+                                : LoopMode.off,
+                          );
+                        },
+                        icon: Icon(
+                          Icons.loop,
+                          color: audioPlayerGetControl.isLooping.value
+                              ? Colors.green
+                              : Colors.white,
+                        ),
+                      ),
+                      IconButton(
                           onPressed: () async {
                             if (audioPlayerGetControl
                                     .currentIndexFromList.value >
@@ -221,6 +273,23 @@ class _AlbumPageState extends State<AlbumPage> {
                             Icons.skip_next_outlined,
                             color: Colors.orangeAccent,
                           )),
+                      IconButton(
+                        onPressed: () {
+                          // Toggle shuffle mode
+                          audioPlayerGetControl.isShuffling.value =
+                              !audioPlayerGetControl.isShuffling.value;
+                          if (audioPlayerGetControl.isShuffling.value) {
+                            // Perform shuffling logic
+                            // You'll need to shuffle your playlist or tracks here
+                          }
+                        },
+                        icon: Icon(
+                          Icons.shuffle,
+                          color: audioPlayerGetControl.isShuffling.value
+                              ? Colors.green
+                              : Colors.white,
+                        ),
+                      ),
                     ],
                   ),
                 ),
